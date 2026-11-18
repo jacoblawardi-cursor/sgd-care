@@ -1,0 +1,6 @@
+# WordPress
+wp-content/upgrade/
+wp-content/backup-db/
+*.log
+.DS_Store
+Thumbs.db

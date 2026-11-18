@@ -125,3 +125,16 @@ function sgd_care_switch_theme() {
     }
 }
 add_action( 'after_setup_theme', 'sgd_care_switch_theme', 1 );
+
+/**
+ * Output Favicon in Header and Admin Screens
+ */
+function sgd_care_favicon() {
+    $favicon_url = SGD_CARE_URI . '/assets/images/logo/sgd-care-logogram.png';
+    echo '<link rel="icon" type="image/png" href="' . esc_url( $favicon_url ) . '">' . "\n";
+    echo '<link rel="shortcut icon" type="image/png" href="' . esc_url( $favicon_url ) . '">' . "\n";
+    echo '<link rel="apple-touch-icon" href="' . esc_url( $favicon_url ) . '">' . "\n";
+}
+add_action( 'wp_head', 'sgd_care_favicon', 2 );
+add_action( 'login_head', 'sgd_care_favicon', 2 );
+add_action( 'admin_head', 'sgd_care_favicon', 2 );

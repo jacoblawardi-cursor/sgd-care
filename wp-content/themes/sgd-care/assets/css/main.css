@@ -1,5 +1,5 @@
 /**
- * SGD Care - Genshin Green (Dendro) Theme Stylesheet
+ * SGD Care - Genshin Green (Dendro) Theme with Signature Gold Trim
  * Modern Home Maintenance & Property Care
  */
 
@@ -18,9 +18,14 @@
     --color-mint-light: #ecfdf5;
     --color-mint-card: #f2fbf7;
     
-    /* Genshin Luxury Gold Accent (Stars, Badges, Highlights) */
-    --color-gold: #f59e0b;
-    --color-gold-glow: #fbbf24;
+    /* Signature Gold Trim Palette (Matching SGD Care Logo) */
+    --color-gold: #c59b27;
+    --color-gold-light: #dfb743;
+    --color-gold-bright: #f5d56d;
+    --color-gold-dark: #8c6713;
+    --color-gold-metallic: linear-gradient(135deg, #b38728 0%, #fbf5b7 30%, #daae46 55%, #e6ca65 80%, #996c14 100%);
+    --color-gold-border: rgba(212, 175, 55, 0.45);
+    --gold-trim-glow: 0 0 18px rgba(218, 174, 70, 0.35);
     
     /* Neutrals & Text */
     --color-bg-page: #f8fcf9;
@@ -46,6 +51,7 @@
     --shadow-soft: 0 4px 20px rgba(11, 77, 54, 0.06);
     --shadow-card: 0 10px 30px rgba(11, 77, 54, 0.08);
     --shadow-glow: 0 8px 32px rgba(16, 185, 129, 0.22);
+    --shadow-gold: 0 8px 32px rgba(212, 175, 55, 0.25);
     --shadow-hover: 0 16px 40px rgba(11, 77, 54, 0.14);
 
     --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -102,25 +108,44 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 24px;
 }
 
-/* Header & Navigation */
+/* Gold Text Accent Helper */
+.gold-text {
+    background: var(--color-gold-metallic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    display: inline-block;
+}
+
+.gold-trim-line {
+    height: 2px;
+    background: var(--color-gold-metallic);
+    border: none;
+    margin: 16px 0;
+}
+
+/* Header & Navigation with Gold Trim */
 .site-header {
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, rgba(16, 185, 129, 0.2) 0%, rgba(212, 175, 55, 0.7) 50%, rgba(16, 185, 129, 0.2) 100%) 1;
     z-index: 1000;
     transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(11, 77, 54, 0.04);
 }
 
 .top-bar {
     background: var(--color-primary-deep);
     color: var(--color-glow-soft);
     font-size: 0.85rem;
-    padding: 6px 0;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.35);
 }
 
 .top-bar-inner {
@@ -137,7 +162,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-bar-badge i {
-    color: var(--color-gold);
+    color: var(--color-gold-light);
+    filter: drop-shadow(0 0 4px rgba(223, 183, 67, 0.6));
+}
+
+.top-bar-badge strong {
+    color: var(--color-gold-bright);
 }
 
 .top-bar-contact {
@@ -154,14 +184,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-bar-contact a:hover {
-    color: var(--color-glow);
+    color: var(--color-gold-bright);
 }
 
 .main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0;
+    padding: 15px 0;
 }
 
 .site-logo {
@@ -173,6 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 .site-logo img {
     height: 48px;
     width: auto;
+    filter: drop-shadow(0 2px 6px rgba(11, 77, 54, 0.12));
 }
 
 .site-logo-text {
@@ -189,15 +220,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-brand span {
-    color: var(--color-accent);
+    background: var(--color-gold-metallic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .logo-sub {
     font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: var(--color-text-muted);
-    font-weight: 600;
+    letter-spacing: 1.4px;
+    color: var(--color-gold-dark);
+    font-weight: 700;
 }
 
 .nav-menu {
@@ -222,7 +255,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--color-accent), var(--color-glow));
+    background: linear-gradient(90deg, var(--color-gold-light), var(--color-accent));
     transition: var(--transition);
 }
 
@@ -237,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 14px;
 }
 
-/* Buttons */
+/* Buttons with Gold Trim */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -252,17 +285,20 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     transition: var(--transition);
     text-align: center;
+    position: relative;
 }
 
 .btn-primary {
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
     color: var(--color-white);
-    box-shadow: 0 4px 15px rgba(11, 77, 54, 0.25);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    box-shadow: 0 4px 15px rgba(11, 77, 54, 0.25), inset 0 0 0 1px rgba(251, 245, 183, 0.2);
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, var(--color-primary-light), var(--color-accent));
-    box-shadow: var(--shadow-glow);
+    border-color: var(--color-gold-bright);
+    box-shadow: var(--shadow-glow), 0 0 14px rgba(212, 175, 55, 0.35);
     color: var(--color-white);
     transform: translateY(-2px);
 }
@@ -270,26 +306,45 @@ h1, h2, h3, h4, h5, h6 {
 .btn-accent {
     background: linear-gradient(135deg, var(--color-accent), var(--color-glow));
     color: var(--color-primary-deep);
+    border: 1px solid rgba(212, 175, 55, 0.4);
     box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
 }
 
 .btn-accent:hover {
     background: linear-gradient(135deg, #059669, var(--color-accent));
+    border-color: var(--color-gold-bright);
     color: #ffffff;
-    box-shadow: 0 6px 24px rgba(16, 185, 129, 0.45);
+    box-shadow: 0 6px 24px rgba(16, 185, 129, 0.45), 0 0 15px rgba(218, 174, 70, 0.3);
     transform: translateY(-2px);
+}
+
+.btn-gold {
+    background: var(--color-gold-metallic);
+    color: var(--color-primary-deep);
+    border: 1px solid #aa771c;
+    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+    font-weight: 800;
+}
+
+.btn-gold:hover {
+    background: linear-gradient(135deg, #fbf5b7, #daae46);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
+    color: #031e15;
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
+    color: var(--color-primary-dark);
+    border: 2px solid rgba(212, 175, 55, 0.65);
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.08);
 }
 
 .btn-outline:hover {
     background: var(--color-mint-light);
-    border-color: var(--color-accent);
+    border-color: var(--color-gold-light);
     color: var(--color-primary-dark);
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.2);
 }
 
 .btn-sm {
@@ -308,7 +363,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-section {
     position: relative;
     padding: 90px 0 80px;
-    background: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+    background: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(52, 211, 153, 0.1) 0%, transparent 45%),
                 linear-gradient(180deg, #f0fdf4 0%, var(--color-bg-page) 100%);
     overflow: hidden;
@@ -325,18 +380,20 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid var(--color-border-glow);
-    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--color-gold-border);
+    padding: 7px 18px;
     border-radius: var(--radius-full);
     color: var(--color-primary-dark);
     font-weight: 700;
     font-size: 0.85rem;
     margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(212, 175, 55, 0.15);
 }
 
 .hero-badge i {
-    color: var(--color-accent);
+    color: var(--color-gold);
+    filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.5));
 }
 
 .hero-title {
@@ -348,7 +405,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title .gradient-text {
-    background: linear-gradient(120deg, var(--color-primary-dark) 20%, var(--color-accent) 80%);
+    background: linear-gradient(120deg, var(--color-primary-dark) 20%, var(--color-accent) 70%, var(--color-gold-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -372,7 +429,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 24px;
     align-items: center;
     padding-top: 24px;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(212, 175, 55, 0.25);
 }
 
 .trust-item {
@@ -382,8 +439,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .trust-item i {
-    color: var(--color-accent);
+    color: var(--color-gold-light);
     font-size: 1.3rem;
+    filter: drop-shadow(0 0 4px rgba(223, 183, 67, 0.4));
 }
 
 .trust-text {
@@ -400,13 +458,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
-/* Hero Diagnostic Card */
+/* Hero Diagnostic Card with Gold Trim */
 .hero-card {
     background: var(--color-white);
     border-radius: var(--radius-lg);
     padding: 32px;
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--color-border);
+    box-shadow: 0 14px 40px rgba(11, 77, 54, 0.08), 0 0 0 1px rgba(212, 175, 55, 0.3);
+    border: 1px solid var(--color-gold-border);
     position: relative;
     overflow: hidden;
 }
@@ -418,7 +476,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-glow));
+    background: linear-gradient(90deg, #0b4d36 0%, #d4af37 35%, #fbf5b7 50%, #daae46 65%, #10b981 100%);
 }
 
 .hero-card-header {
@@ -429,6 +487,14 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.35rem;
     color: var(--color-primary-dark);
     margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-card-header h3 i {
+    color: var(--color-gold-light);
+    margin-right: 10px;
+    filter: drop-shadow(0 0 5px rgba(223, 183, 67, 0.5));
 }
 
 .hero-card-header p {
@@ -436,18 +502,23 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-text-muted);
 }
 
-/* Service Pillars */
+/* Service Pillars with Gold Trim */
 .section {
     padding: 80px 0;
 }
 
 .section-alt {
     background: var(--color-bg-alt);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .section-dark {
     background: var(--color-primary-deep);
     color: #e6f9f0;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-image: var(--color-gold-metallic) 1;
 }
 
 .section-dark h2,
@@ -470,9 +541,27 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--color-accent);
+    letter-spacing: 1.8px;
+    color: var(--color-gold-light);
     margin-bottom: 8px;
+    position: relative;
+    padding: 0 12px;
+}
+
+.section-subtitle::before,
+.section-subtitle::after {
+    content: '✦';
+    font-size: 0.65rem;
+    color: var(--color-gold-light);
+    vertical-align: middle;
+}
+
+.section-subtitle::before {
+    margin-right: 6px;
+}
+
+.section-subtitle::after {
+    margin-left: 6px;
 }
 
 .section-title {
@@ -486,7 +575,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-text-muted);
 }
 
-/* Grid Cards */
+/* Grid Cards with Gold Accents */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -496,38 +585,58 @@ h1, h2, h3, h4, h5, h6 {
 .service-card {
     background: var(--color-white);
     border-radius: var(--radius-md);
-    padding: 30px;
+    padding: 32px 30px;
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-soft);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--color-gold-metallic);
+    transition: var(--transition);
 }
 
 .service-card:hover {
     transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--color-accent);
+    box-shadow: 0 16px 36px rgba(11, 77, 54, 0.12), 0 0 18px rgba(212, 175, 55, 0.18);
+    border-color: var(--color-gold-border);
+}
+
+.service-card:hover::after {
+    width: 100%;
 }
 
 .service-icon-box {
-    width: 60px;
-    height: 60px;
+    width: 62px;
+    height: 62px;
     border-radius: var(--radius-md);
     background: var(--color-mint-light);
     color: var(--color-primary);
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.6rem;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.12);
 }
 
 .service-card:hover .service-icon-box {
-    background: linear-gradient(135deg, var(--color-accent), var(--color-glow));
-    color: var(--color-primary-deep);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: var(--color-gold-bright);
+    border-color: var(--color-gold-light);
+    box-shadow: var(--gold-trim-glow);
 }
 
 .service-card h4 {
@@ -558,7 +667,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-features li i {
-    color: var(--color-accent);
+    color: var(--color-gold);
     font-size: 0.8rem;
 }
 
@@ -572,11 +681,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-card-link:hover {
-    color: var(--color-accent);
+    color: var(--color-gold-dark);
     gap: 10px;
 }
 
-/* Heritage Section */
+/* Heritage Section with Gold Trim */
 .heritage-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -588,17 +697,19 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 16px 40px rgba(11, 77, 54, 0.12);
+    border: 2px solid rgba(212, 175, 55, 0.4);
 }
 
 .heritage-badge-overlap {
     position: absolute;
     bottom: 24px;
     right: 24px;
-    background: rgba(3, 30, 21, 0.92);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--color-border-glow);
-    padding: 16px 20px;
+    background: rgba(3, 30, 21, 0.94);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-gold-border);
+    box-shadow: var(--gold-trim-glow);
+    padding: 16px 22px;
     border-radius: var(--radius-md);
     color: #ffffff;
     display: flex;
@@ -607,14 +718,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .heritage-badge-overlap i {
-    font-size: 2rem;
-    color: var(--color-gold);
+    font-size: 2.2rem;
+    color: var(--color-gold-bright);
+    filter: drop-shadow(0 0 6px rgba(223, 183, 67, 0.7));
 }
 
 .heritage-badge-overlap strong {
     display: block;
     font-size: 1.1rem;
-    color: var(--color-glow-soft);
+    color: var(--color-gold-bright);
 }
 
 .heritage-badge-overlap span {
@@ -622,7 +734,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #d1ebd9;
 }
 
-/* Care Calculator Widget */
+/* Care Calculator Widget with Gold Accents */
 .calc-widget {
     background: var(--color-white);
     border-radius: var(--radius-lg);
@@ -643,6 +755,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 6px;
 }
 
+.form-group label i {
+    color: var(--color-gold-light);
+    margin-right: 4px;
+}
+
 .form-control {
     width: 100%;
     padding: 11px 14px;
@@ -657,17 +774,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-control:focus {
     outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    border-color: var(--color-gold-light);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
 }
 
 .calc-estimate-result {
     background: var(--color-mint-light);
-    border: 1px dashed var(--color-accent);
+    border: 1px dashed var(--color-gold);
     padding: 18px;
     border-radius: var(--radius-md);
     margin: 20px 0;
     text-align: center;
+    box-shadow: inset 0 0 12px rgba(212, 175, 55, 0.08);
 }
 
 .calc-estimate-result .label {
@@ -675,18 +793,18 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--color-primary-light);
+    color: var(--color-gold-dark);
 }
 
 .calc-estimate-result .price {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.85rem;
     font-weight: 800;
     color: var(--color-primary-dark);
     margin: 4px 0;
 }
 
-/* Plans & Subscriptions */
+/* Plans & Subscriptions with Gold Trim */
 .plans-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -707,8 +825,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .plan-card.featured {
-    border: 2px solid var(--color-accent);
-    box-shadow: var(--shadow-glow);
+    border: 2px solid var(--color-gold-light);
+    box-shadow: 0 16px 44px rgba(11, 77, 54, 0.12), var(--gold-trim-glow);
     transform: scale(1.03);
 }
 
@@ -717,14 +835,16 @@ h1, h2, h3, h4, h5, h6 {
     top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--color-accent), var(--color-glow));
+    background: var(--color-gold-metallic);
     color: var(--color-primary-deep);
     font-weight: 800;
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px 14px;
+    letter-spacing: 1.2px;
+    padding: 5px 16px;
     border-radius: var(--radius-full);
+    border: 1px solid #aa771c;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
 }
 
 .plan-name {
@@ -771,19 +891,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .plan-features li i.fa-check {
-    color: var(--color-accent);
+    color: var(--color-gold);
 }
 
 .plan-features li i.fa-times {
     color: #cbd5e1;
 }
 
-/* Footer */
+/* Footer with Gold Trim */
 .site-footer {
     background: var(--color-primary-deep);
     color: #cce7dc;
     padding: 70px 0 24px;
-    border-top: 3px solid var(--color-accent);
+    border-top: 3px solid;
+    border-image: var(--color-gold-metallic) 1;
 }
 
 .footer-grid {
@@ -806,9 +927,9 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 30px;
+    width: 32px;
     height: 2px;
-    background: var(--color-accent);
+    background: var(--color-gold-metallic);
 }
 
 .footer-col p {
@@ -834,8 +955,13 @@ h1, h2, h3, h4, h5, h6 {
     gap: 8px;
 }
 
+.footer-links a i {
+    color: var(--color-gold-light);
+    font-size: 0.75rem;
+}
+
 .footer-links a:hover {
-    color: var(--color-glow);
+    color: var(--color-gold-bright);
     transform: translateX(4px);
 }
 
@@ -853,13 +979,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-contact-list i {
-    color: var(--color-accent);
+    color: var(--color-gold-light);
     margin-top: 4px;
 }
 
 .footer-bottom {
     padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -872,16 +998,17 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 8px;
     background: rgba(255, 255, 255, 0.06);
-    padding: 6px 14px;
+    border: 1px solid var(--color-gold-border);
+    padding: 6px 16px;
     border-radius: var(--radius-full);
 }
 
 .footer-badge a {
-    color: var(--color-glow-soft);
+    color: var(--color-gold-bright);
     font-weight: 600;
 }
 
-/* WhatsApp Floating Button */
+/* WhatsApp Floating Button with Gold Trim Aura */
 .wa-float {
     position: fixed;
     bottom: 28px;
@@ -891,11 +1018,12 @@ h1, h2, h3, h4, h5, h6 {
     background: #25d366;
     color: #ffffff;
     border-radius: 50%;
+    border: 2px solid rgba(255, 215, 0, 0.65);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 30px;
-    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 0 12px rgba(212, 175, 55, 0.4);
     z-index: 999;
     transition: var(--transition);
 }
@@ -903,7 +1031,8 @@ h1, h2, h3, h4, h5, h6 {
 .wa-float:hover {
     color: #ffffff;
     transform: scale(1.1) rotate(6deg);
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+    border-color: #ffd700;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6), var(--gold-trim-glow);
 }
 
 .wa-float .wa-tooltip {
@@ -911,6 +1040,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 72px;
     background: rgba(3, 30, 21, 0.95);
     color: #ffffff;
+    border: 1px solid var(--color-gold-border);
     padding: 6px 14px;
     border-radius: var(--radius-sm);
     font-size: 0.8rem;
@@ -965,7 +1095,8 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: column;
         padding: 24px;
         box-shadow: var(--shadow-card);
-        border-bottom: 1px solid var(--color-border);
+        border-bottom: 2px solid;
+        border-image: var(--color-gold-metallic) 1;
         display: none;
         gap: 16px;
     }

@@ -16,7 +16,7 @@ get_header();
             <div class="hero-grid">
                 <div class="hero-content">
                     <div class="hero-badge">
-                        <i class="fas fa-leaf"></i>
+                        <i class="fas fa-certificate"></i>
                         <span>Home Maintenance & Property Care Specialist</span>
                     </div>
 
@@ -102,7 +102,7 @@ get_header();
                             <small style="color: var(--color-text-muted);">*Biaya final ditentukan setelah tim melakukan survei teknis.</small>
                         </div>
 
-                        <a href="<?php echo esc_url( sgd_care_whatsapp_url() ); ?>" id="calc-wa-cta" target="_blank" rel="noopener" class="btn btn-accent" style="width: 100%;">
+                        <a href="<?php echo esc_url( sgd_care_whatsapp_url() ); ?>" id="calc-wa-cta" target="_blank" rel="noopener" class="btn btn-gold" style="width: 100%;">
                             <i class="fab fa-whatsapp"></i> Kirim Estimasi via WhatsApp &rarr;
                         </a>
                     </form>
@@ -307,7 +307,8 @@ get_header();
                 </div>
 
                 <!-- Plan 3 -->
-                <div class="plan-card">
+                <div class="plan-card" style="border: 1px solid var(--color-gold-border);">
+                    <div class="plan-tag" style="background: linear-gradient(135deg, var(--color-primary-deep), var(--color-primary)); color: var(--color-gold-bright); border: 1px solid var(--color-gold);"><i class="fas fa-crown" style="color: var(--color-gold-bright);"></i> VIP Estate</div>
                     <h3 class="plan-name">Total Estate</h3>
                     <p class="plan-desc">Dedicated care untuk rumah mewah, villa, atau kantor dengan penanganan VIP.</p>
                     <div class="plan-price">Rp 5.500.000 <span>/ semester</span></div>
